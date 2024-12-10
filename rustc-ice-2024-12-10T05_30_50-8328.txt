@@ -1,0 +1,57 @@
+thread 'rustc' panicked at compiler\rustc_middle\src\ty\normalize_erasing_regions.rs:169:90:
+Box<dyn Any>
+stack backtrace:
+   0:     0x7ffcf5e08323 - std::backtrace_rs::backtrace::dbghelp64::trace
+                               at /rustc/a93c1718c80b9f100056c8eec3fc37fbd6424134\library/std\src\..\..\backtrace\src\backtrace\dbghelp64.rs:91
+   1:     0x7ffcf5e08323 - std::backtrace_rs::backtrace::trace_unsynchronized
+                               at /rustc/a93c1718c80b9f100056c8eec3fc37fbd6424134\library/std\src\..\..\backtrace\src\backtrace\mod.rs:66
+   2:     0x7ffcf5e08323 - std::backtrace::Backtrace::create
+                               at /rustc/a93c1718c80b9f100056c8eec3fc37fbd6424134\library/std\src\backtrace.rs:331
+   3:     0x7ffcf5e0826a - std::backtrace::Backtrace::force_capture
+                               at /rustc/a93c1718c80b9f100056c8eec3fc37fbd6424134\library/std\src\backtrace.rs:312
+   4:     0x7ffcf746b97b - memchr
+   5:     0x7ffcf5e22fa2 - alloc::boxed::impl$50::call
+                               at /rustc/a93c1718c80b9f100056c8eec3fc37fbd6424134\library/alloc\src\boxed.rs:2468
+   6:     0x7ffcf5e22fa2 - std::panicking::rust_panic_with_hook
+                               at /rustc/a93c1718c80b9f100056c8eec3fc37fbd6424134\library/std\src\panicking.rs:809
+   7:     0x7ffcf8c5b263 - <rustc_hir_pretty[d2ee5cf1fa8bb05f]::State>::print_variant
+   8:     0x7ffcf8c4d259 - <rustc_hir_pretty[d2ee5cf1fa8bb05f]::State>::print_variant
+   9:     0x7ffcf8c4d218 - <rustc_hir_pretty[d2ee5cf1fa8bb05f]::State>::print_variant
+  10:     0x7ffcf8c68795 - <rustc_errors[8db3ea318245dfd9]::diagnostic::BugAbort as rustc_errors[8db3ea318245dfd9]::diagnostic::EmissionGuarantee>::emit_producing_guarantee
+  11:     0x7ffcf8b71962 - rustc_middle[f317405d355f9905]::util::bug::bug_fmt
+  12:     0x7ffcf8b5139d - rustc_middle[f317405d355f9905]::ty::consts::const_param_default
+  13:     0x7ffcf8b511b6 - rustc_middle[f317405d355f9905]::ty::consts::const_param_default
+  14:     0x7ffcf8b71862 - rustc_middle[f317405d355f9905]::util::bug::bug_fmt
+  15:     0x7ffcf72545e2 - <rustc_middle[f317405d355f9905]::ty::normalize_erasing_regions::NormalizeAfterErasingRegionsFolder as rustc_type_ir[87d75f84f2dfbbdd]::fold::TypeFolder<rustc_middle[f317405d355f9905]::ty::context::TyCtxt>>::fold_ty
+  16:     0x7ffcf6260472 - rustc_monomorphize[dfe4cfe8222f737]::polymorphize::unused_generic_params
+  17:     0x7ffcf636da96 - <rustc_mir_transform[bcb9c269626bd164]::elaborate_drops::ElaborateDrops as rustc_mir_transform[bcb9c269626bd164]::pass_manager::MirPass>::run_pass
+  18:     0x7ffcf634fe38 - rustc_mir_transform[bcb9c269626bd164]::run_analysis_to_runtime_passes
+  19:     0x7ffcf634cd1b - rustc_mir_transform[bcb9c269626bd164]::mir_drops_elaborated_and_const_checked
+  20:     0x7ffcf6bff7db - rustc_query_impl[45bd860d5ada6554]::plumbing::query_key_hash_verify_all
+  21:     0x7ffcf6b401c5 - rustc_ty_utils[9ac3a035ae3b1b78]::ty::self_ty_of_trait_impl_enabling_order_dep_trait_object_hack
+  22:     0x7ffcf6c041ff - rustc_query_impl[45bd860d5ada6554]::plumbing::query_key_hash_verify_all
+  23:     0x7ffcf5e9b187 - rustc_interface[2ea47d4454b7332c]::passes::resolver_for_lowering_raw
+  24:     0x7ffcf2e77b4e - rustc_interface[2ea47d4454b7332c]::passes::analysis
+  25:     0x7ffcf5a1ddfb - rustc_ty_utils[9ac3a035ae3b1b78]::ty::adt_sized_constraint
+  26:     0x7ffcf5934c5a - rustc_ty_utils[9ac3a035ae3b1b78]::ty::adt_sized_constraint
+  27:     0x7ffcf5a23603 - rustc_query_impl[45bd860d5ada6554]::query_system
+  28:     0x7ffcf2e33107 - _rust_alloc_error_handler
+  29:     0x7ffcf2e2ecaf - _rust_alloc_error_handler
+  30:     0x7ffcf2e38d17 - _rust_alloc_error_handler
+  31:     0x7ffcf5e34a7d - alloc::boxed::impl$48::call_once
+                               at /rustc/a93c1718c80b9f100056c8eec3fc37fbd6424134\library/alloc\src\boxed.rs:2454
+  32:     0x7ffcf5e34a7d - alloc::boxed::impl$48::call_once
+                               at /rustc/a93c1718c80b9f100056c8eec3fc37fbd6424134\library/alloc\src\boxed.rs:2454
+  33:     0x7ffcf5e34a7d - std::sys::pal::windows::thread::impl$0::new::thread_start
+                               at /rustc/a93c1718c80b9f100056c8eec3fc37fbd6424134\library/std\src\sys\pal\windows\thread.rs:55
+  34:     0x7ffd6261259d - BaseThreadInitThunk
+  35:     0x7ffd6480af38 - RtlUserThreadStart
+
+
+rustc version: 1.84.0-nightly (a93c1718c 2024-10-24)
+platform: x86_64-pc-windows-msvc
+
+query stack during panic:
+#0 [mir_drops_elaborated_and_const_checked] elaborating drops for `providers::icon_overlay::<impl at shell_extention\src\providers\icon_overlay.rs:42:1: 42:42>::into_inner`
+#1 [analysis] running analysis passes on this crate
+end of query stack

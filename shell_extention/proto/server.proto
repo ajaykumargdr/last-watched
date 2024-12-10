@@ -1,0 +1,14 @@
+syntax="proto3";
+package server;
+
+service Drive{
+   rpc OverlayIcon (Path) returns (Icon);
+}
+
+message Path{
+    string name =1;
+}
+
+message Icon{
+    string kind = 1;
+}
